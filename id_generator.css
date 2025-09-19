@@ -1,0 +1,324 @@
+.content-section {
+  padding: 30px;
+  background: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.generator-controls {
+  flex: 1;
+  flex-basis: 45%;
+  min-width: 350px;
+  max-width: 500px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.photo-tip {
+  display: block;
+  margin-top: 5px;
+  color: #666;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.id-preview-area {
+  flex: 1;
+  flex-basis: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f0f2f5;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.id-card {
+  width: 324px;
+  height: auto;
+  min-height: 280px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  position: relative;
+  overflow: visible;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.id-header {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.id-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+  margin-bottom: 8px;
+}
+
+.id-header-text h4 {
+  font-size: 1.1rem;
+  margin: 0 0 3px 0;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.id-header-text p {
+  font-size: 0.75rem;
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.2;
+}
+
+.id-photo-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 3px solid #e0e0e0;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  position: relative;
+}
+
+.id-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.id-details {
+  text-align: center;
+  width: 100%;
+}
+
+.id-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.id-program {
+  font-size: 0.85rem;
+  margin: 0 0 5px 0;
+  opacity: 0.9;
+  line-height: 1.2;
+}
+
+.id-student-number {
+  font-size: 0.8rem;
+  margin: 0 0 5px 0;
+  opacity: 0.7;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.id-website {
+  font-size: 0.7rem;
+  margin: 10px 0 0 0;
+  opacity: 0.6;
+  line-height: 1.2;
+  font-style: italic;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-section {
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .generator-controls {
+    max-width: 100%;
+    flex-basis: auto;
+    margin-bottom: 20px;
+  }
+
+  .id-preview-area {
+    padding: 15px;
+    flex-basis: auto;
+  }
+
+  .id-card {
+    width: 280px;
+    min-height: 250px;
+    padding: 15px;
+  }
+
+  .id-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .id-header-text h4 {
+    font-size: 1rem;
+  }
+
+  .id-header-text p {
+    font-size: 0.7rem;
+  }
+
+  .id-photo-container {
+    width: 110px;
+    height: 110px;
+  }
+
+  .id-name {
+    font-size: 1.1rem;
+  }
+
+  .id-program {
+    font-size: 0.8rem;
+  }
+
+  .id-student-number {
+    font-size: 0.75rem;
+  }
+
+  .id-website {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .generator-controls {
+    padding: 15px;
+  }
+
+  .form-group label,
+  .form-group input,
+  .form-group select,
+  .button-group .btn {
+    font-size: 0.85rem;
+  }
+
+  .id-card {
+    width: 250px;
+    min-height: 220px;
+    padding: 12px;
+  }
+
+  .id-logo {
+    width: 32px;
+    height: 32px;
+    border-width: 1px;
+  }
+
+  .id-header-text h4 {
+    font-size: 0.9rem;
+  }
+
+  .id-header-text p {
+    font-size: 0.65rem;
+  }
+
+  .id-photo-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .id-name {
+    font-size: 1rem;
+  }
+
+  .id-program {
+    font-size: 0.75rem;
+  }
+
+  .id-student-number {
+    font-size: 0.7rem;
+  }
+
+  .id-website {
+    font-size: 0.6rem;
+  }
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #007bff;
+  color: white;
+}
+
+.btn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #6c757d;
+}
+
+.btn-secondary:hover {
+  background: #545b62;
+}

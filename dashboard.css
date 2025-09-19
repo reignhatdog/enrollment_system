@@ -1,0 +1,507 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, rgb(153, 153, 153) 0%, rgb(96, 96, 96) 100%);
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(135deg, rgb(74, 74, 74) 0%, rgb(83, 83, 83) 100%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.header-text {
+  text-align: center;
+  min-width: 0;
+}
+
+.header h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.header p {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  opacity: 0.9;
+}
+
+/* Menu Toggle Styles */
+.menu-toggle {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-shrink: 0;
+}
+
+.menu-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar Styles*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100vh;
+  background: linear-gradient(135deg, rgb(74, 74, 74) 0%, rgb(83, 83, 83) 100%);
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.4);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.sidebar-header {
+  padding: 30px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-header h3 {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.sidebar-header p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+}
+
+.sidebar-content {
+  padding: 20px 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin: 0;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 25px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  font-size: 16px;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: #3498db;
+  padding-left: 30px;
+  transform: translateX(5px);
+}
+
+.sidebar-menu .logout-item a {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sidebar-menu .logout-item a:hover {
+  background: rgba(231, 76, 60, 0.15);
+  color: #ff5252;
+  border-left-color: #e74c3c;
+}
+
+.menu-icon {
+  font-size: 20px;
+  width: 24px;
+  text-align: center;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 30px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1b1b1b 0%, #282828 100%);
+  border-radius: 50%;
+  color: white;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.stat-content h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.stat-content p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Charts Section */
+.charts-section {
+  padding: 30px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.chart-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.chart-header h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.chart-header p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.chart-container {
+  position: relative;
+  height: 0;
+  padding-bottom: 75%;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Loading Styles */
+.loading {
+  display: none;
+  text-align: center;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading p {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column !important;
+    gap: 15px;
+    padding-top: 50px;
+    position: relative;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    transform: none;
+  }
+
+  .logo {
+    width: 90px;
+    height: 90px;
+    order: 1;
+  }
+
+  .header-text {
+    order: 2;
+  }
+
+  .sidebar {
+    width: 75%;
+    left: -75%;
+  }
+
+  .stats-section {
+    padding: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .stat-card {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  @media (max-width: 320px) {
+  .stat-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 1.1rem;
+    
+    /* Ensure text fits and is centered */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    line-height: 1.1;
+    word-wrap: break-word;
+    padding: 4px; /* Optional, adjust as needed */
+  }
+}
+
+
+  .stat-content h3 {
+    font-size: 2rem;
+  }
+
+  .charts-section {
+    padding: 20px;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .chart-card {
+    padding: 20px;
+  }
+
+  .chart-container {
+    height: 250px;
+  }
+}
+
+@media (max-width: 479px) {
+  .header-content {
+    padding-top: 45px;
+  }
+
+  .menu-toggle {
+    left: 12px;
+    top: 12px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .sidebar {
+    width: 85%;
+    left: -85%;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    height: 200px;
+  }
+
+  .stat-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .stat-content p {
+    font-size: 1rem;
+  }
+
+  .stat-icon {
+    font-size: 1rem; /* Further adjusted font size for smaller mobiles */
+    width: 60px; /* Further adjusted width */
+    height: 60px; /* Further adjusted height */
+  }
+}
+
+@media (min-width: 1200px) {
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-container {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .chart-container {
+    height: 180px;
+  }
+
+  .chart-card {
+    padding: 15px;
+  }
+
+  .chart-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .chart-header p {
+    font-size: 0.8rem;
+  }
+}
